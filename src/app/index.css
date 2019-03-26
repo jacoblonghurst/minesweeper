@@ -1,0 +1,311 @@
+.card {
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.57);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.57);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: white;
+}
+.card .card__title {
+  background-color: #eeeeee;
+  height: 45px;
+  max-height: 45px;
+  padding: 10px 10px 0 10px;
+}
+.card .card__content {
+  padding: 0 15px;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: #fafafa;
+  max-height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 1100px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+#app #app__container {
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fafafa;
+  height: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+}
+#app #app__container #home {
+  margin-bottom: 50px;
+}
+#app #app__container #home .page-header {
+  width: 100vw;
+  text-align: center;
+  margin: 0 auto;
+}
+#app #app__container #home .page-header div {
+  display: inline-block;
+}
+#app #app__container #home .page-header .page-header__title {
+  cursor: pointer;
+}
+#app #app__container #home .page-header .page-header__title div {
+  margin-top: 50px;
+  display: inline-block;
+}
+#app #app__container #home .page-header .page-header__title div h1 {
+  font-size: 72px;
+  font-family: "Monoton", cursive;
+  letter-spacing: 6px;
+  padding: 0;
+  display: inline-block;
+  margin: 0;
+  color: #303030;
+  overflow: hidden;
+  cursor: pointer;
+  white-space: nowrap;
+  border-right: 0.15em solid orange;
+  animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+#app #app__container #home .page-header .page-header__mine_img img {
+  width: 100vw;
+}
+#app #app__container #home .how-to {
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+  height: 450px;
+}
+#app #app__container #home .how-to h1 {
+  color: #151515;
+  border-bottom: 0.019px solid #151515;
+}
+#app #app__container #home .how-to .card {
+  width: 30%;
+  margin: 0 10px;
+  height: 360px;
+}
+#app #app__container #home .how-to .card .card__title {
+  font-size: 1.1em;
+}
+#app #app__container #home .how-to .__overview {
+  display: inline-block;
+}
+#app #app__container #home .how-to .__play {
+  display: inline-block;
+}
+#app #app__container #home .locationDiv {
+  text-align: center;
+  display: table;
+  margin: 0 auto;
+}
+#app #app__container #home .locationDiv div:first-child {
+  padding-right: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 20px;
+}
+#app #app__container #home .locationDiv #clickLocation {
+  padding: 0;
+  display: table-cell;
+  width: 200px;
+  height: 30px;
+  background-color: #4dc1f9;
+  vertical-align: middle;
+  color: white;
+  font-size: 20px;
+}
+#app #app__container .board {
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  display: inline-block;
+}
+#app #app__container .board #lost_game {
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  margin-top: 100px;
+  padding: 0;
+  transition: opacity 3s;
+}
+#app #app__container .board #lost_game #lost_game__score {
+  display: inline-block;
+  height: 225px;
+  width: 300px;
+  text-align: center;
+  background: #4dc1f9 url("https://www.google.com/logos/fnbx/minesweeper/lose_screen.png") center bottom no-repeat;
+  background-size: contain;
+  border-radius: 8px;
+  margin: 0 auto;
+  max-width: inherit;
+}
+#app #app__container .board #lost_game #lost_game__score div {
+  display: inline-block;
+  margin-top: 25px;
+  margin-left: 36px;
+  margin-right: 36px;
+  text-align: center;
+  max-width: 60px;
+  max-height: 96px;
+}
+#app #app__container .board #lost_game #lost_game__score div img {
+  width: 60px;
+  height: auto;
+}
+#app #app__container .board #lost_game #lost_game__retry {
+  height: 65px;
+  max-width: 300px;
+  margin: 12px auto;
+  background: #4a752c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+#app #app__container .board #lost_game #lost_game__retry img {
+  vertical-align: middle;
+  margin: 0 16px 2px 0;
+  width: 30px;
+  height: 30px;
+}
+#app #app__container .board #lost_game #lost_game__retry h2 {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 20px;
+  color: #fff;
+  margin: 20px 0 0 0;
+  padding: 0;
+}
+#app #app__container .board .board__title {
+  height: 60px;
+  max-height: 60px;
+  min-height: 60px;
+  display: inline-block;
+  background-color: #5837E8;
+  padding: 0;
+  width: 540px;
+  margin: 0 auto;
+}
+#app #app__container .board .board__title .difficulty {
+  display: inline-block;
+  float: left;
+  vertical-align: middle;
+  padding-top: 15px;
+}
+#app #app__container .board .board__title .difficulty select {
+  width: 65px;
+  height: 25px;
+  margin-left: 10px;
+}
+#app #app__container .board .board__title .controls {
+  display: inline-block;
+  max-height: 60px;
+  height: 60px;
+  min-height: 60px;
+  float: left;
+  padding-top: 5px;
+}
+#app #app__container .board .board__title .controls .game__button {
+  display: inline-block;
+  border-radius: 0.5px;
+  color: white;
+  background-color: inherit;
+  padding: 10px 15px;
+  line-height: 1.2;
+  transition: 0.2s;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  max-width: 33px;
+  width: auto;
+}
+#app #app__container .board .board__title .information {
+  display: inline-block;
+  padding-top: 15px;
+  font-size: 20px;
+  width: 100%;
+  min-width: 125px;
+  max-width: 200px;
+  max-height: inherit;
+}
+#app #app__container .board .board__title .information #flags_left {
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  width: 51px;
+  min-width: 51px;
+  max-width: 51px;
+  color: #fafafa;
+}
+#app #app__container .board .board__title .information #flags_left #flags_left_number {
+  width: 2ch;
+}
+#app #app__container .board .board__title .information #stopwatch {
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  padding-left: 5px;
+  color: #fafafa;
+  width: 100%;
+  min-width: 60px;
+  max-width: 70px;
+}
+#app #app__container .board .board__title .information #stopwatch #stopwatch_seconds {
+  color: #fafafa;
+}
+#app #app__container .board__grid {
+  padding: 0;
+  margin: 0 auto;
+}
+#app #app__container .easy {
+  width: 450px;
+  max-width: 450px;
+  min-width: 450px;
+}
+#app #app__container .medium {
+  width: 540px;
+  max-width: 540px;
+  min-width: 540px;
+}
+#app #app__container .hard {
+  min-width: 600px;
+  width: 600px;
+  max-width: 600px;
+}
+#app #app__container .hover_light:hover {
+  background-color: #ECD0B7;
+}
+#app #app__container .hover_dark:hover {
+  background-color: #E1CAB3;
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MineSweeper | Check List</title>
+</head>
+<body>
+    <div style="width: 700px; font-size: 18px; margin: 0 auto;">
+        <ol>
+            <li>Determine which square the user is clicking on.
+                <ol type="a">
+                    <li>Implemented</li>
+                    <li>You just need to click on any square in the minesweeper board</li>
+                </ol>
+            </li><br />
+            <li>Determine which button was clicked. i.e. If it was the left or right or both
+                <ol type="a">
+                    <li>Implemented</li>
+                    <li>You cannot see the logic behind which button was clicked in the view,
+                        however the logic is in the code.</li>
+                </ol>
+            </li><br />
+            <li>If the square is a left click, then check if the square is a mine
+                <ol type="a">
+                    <li>Implemented</li>
+                    <li>We run a check first once we make a left click to see if it's a mine</li>
+                </ol>
+            </li><br />
+            <li>If the square is a mine, then run endGame() and present the user with an option to start again.
+                <ol type="a">
+                    <li>Implemented</li>
+                    <li>To see this you simply need to click on a mine. If you don't know which square's a mine
+                        then you can keep clicking on the board until you hit one </li>
+                </ol>
+            </li><br />
+            <li>If it's not a mine then reveal the square, change the square to display the correct number of mines
+                touching those squares and all run against adjacent squares that aren't mines.
+                <ol type="a">
+                    <li>Implemented</li>
+                    <li>To see this you only need to make a left click on any square on the board that isn't a mine</li>
+                    <li>This was the most difficult piece to get the logic correct since I needed to recurse on
+                        any square that didn't have any mines touching it and only reveal the squares that had mines
+                        touching them.</li>
+                </ol>
+            </li><br />
+            <li>If it's a right click, toggle placing a flag on or off the square
+                <ol type="a">
+                    <li>Implemented</li>
+                    <li>You simply need to right click on any square and it will place a flag or remove a flag</li>
+                </ol>
+            </li><br />
+            <li>If it's a left and right click check if the coordinate is a mine or has a flag, and check if the
+                square has been revealed to show the number corresponding to how many mines are touching the square
+                <ol type="a">
+                    <li>Not Implemented</li>
+                    <li>If it doesn't have a flag and isn't a mine and isn't revealed then don't do anything</li>
+                    <li>If it is revealed then check if the number of flags touching the square correspond to the
+                        number of mines touching the square.
+                        <ol type="i">
+                            <li>If it does then run revealSquares() on all adjacent squares and recurse
+                                through this whole process again.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li><br />
+            <li>If you have revealed all squares except the mines, you win the game
+                <ol type="a">
+                    <li>Implemented</li>
+                    <li>Win the game and you'll see the ending. HINT: turn on your volume</li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+</body>
+</html>

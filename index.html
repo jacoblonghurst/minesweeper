@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Minesweeper</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./src/app/index.css">
+    <link rel="stylesheet" href="./src/app/navigation.css">
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+</head>
+
+<body id="app">
+    <div id="nav">
+        <div class="top-nav">
+            <div class="nav_menu">
+                <button id="menu_button" class="menu_button" onclick="toggleNav()">
+                    <i class="material-icons md-24" id="menu_icon">menu</i>
+                </button>
+            </div>
+        </div>
+        <div id="nav__side" class="side-nav closed-nav" onclick="toggleNav();">
+            <div class="nav-content">
+                <div class="nav-header">
+                    <a href="http://localhost:8080">
+                        <i class="material-icons md-24" style="color: white;">home</i><span>Mines</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app__container" onclick="closeNav()">
+        <div id="home">
+            <div class="page-header">
+                <div class="page-header__title">
+                    <div>
+                        <h1>MineSweeper</h1>
+                    </div>
+                    <!--<div>-->
+                        <!--<h1>M</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1>i</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1>n</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1>e</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1> S</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1>w</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1>e</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1>e</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1>p</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1>e</h1>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<h1>r</h1>-->
+                    <!--</div>-->
+                </div>
+                <div class="page-header__mine_img">
+                    <img src="" alt="">
+                </div>
+            </div>
+
+            <div class="how-to">
+                <h1>How to Play</h1>
+                <div class="card __overview">
+                    <div class="card__title">Overview</div>
+
+                    <div class="card__content">
+                        <p>The object of Minesweeper is to locate all the mines as quickly as possible
+                            without uncovering any of them. If you uncover a mine, you lose the game.</p>
+                    </div>
+                </div>
+
+                <div class="card __win">
+                    <div class="card__title">How to Win</div>
+
+                    <div class="card__content">
+                        <p>Once you've located a mine right click on the mine to place a flag. Once you've placed all flags
+                            and uncovered all the squares that are not mines, you win the game.</p>
+                    </div>
+
+                    <div>
+                        <label for="showInput"><b>Your Name: </b></label>
+                        <input type="text" id="showInput" onblur="showInputText(this.value)"
+                               onkeyup="showInputText(this.value)" />
+
+                        <div id="showInputText"></div>
+                    </div>
+                </div>
+
+                <div class="card __play">
+                    <div class="card__title">Game Start, Stop, Pause</div>
+                    <div class="card__content"></div>
+                    <p>To start a new game click Play. To stop a game click Stop.
+                        To pause a game click Pause. To save a current game for later click Save</p>
+                </div>
+            </div>
+            
+            <div class="locationDiv">
+                <div><b>Location of Clicked Square</b></div>
+                
+                <div id="clickLocation">
+                    <div id="clickLocationRow" style="padding-right: 10px; display: inline-block;"></div>
+                    <div id="clickLocationCol" style="padding: 0; margin: 0; display: inline-block;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="board" id="board">
+            <!-- todo -- add the popup box here if you lose or if you win. It should show time to win and try again or play again-->
+            <div id="lost_game" style="visibility: hidden; opacity: 0;">
+                <div id="lost_game__score">
+                    <div>
+                        <img src="https://www.google.com/logos/fnbx/minesweeper/clock_icon.png" alt="">
+                        <div><!-- score goes here --></div>
+                    </div>
+
+                    <div>
+                        <img src="https://www.google.com/logos/fnbx/minesweeper/trophy_icon.png" alt="">
+                        <div></div>
+                    </div>
+                </div>
+
+                <div id="lost_game__retry" onclick="theGrid();">
+                    <img src="https://www.gstatic.com/images/icons/material/system/2x/refresh_white_24dp.png" alt="">
+                    <h2>Try Again</h2>
+                </div>
+            </div>
+
+            <div id="won_game" style="display: none;">
+
+            </div>
+            <div class="board__title" id="board__title">
+                <div class="difficulty">
+                    <label for="difficulty"> </label>
+                    <select name="difficulty" id="difficulty" onchange="init()">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected="selected">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="controls">
+                    <button class="game__button __play" onclick="init()">
+                        <i class="material-icons">play_circle_outline</i>
+                    </button>
+                    <button class="game__button __pause" onclick="pauseStopwatch();">
+                        <i class="material-icons">pause_circle_outline</i>
+                    </button>
+                </div>
+
+                <div class="information">
+                    <div id="flags_left">
+                        <i class="fab fa-font-awesome-flag"></i>
+                        <span id="flags_left_number">40</span>
+                    </div>
+                    <div id="stopwatch">
+                        <i class="fas fa-stopwatch"></i>
+                        <time id="stopwatch_seconds">000</time>
+                    </div>
+                </div>
+            </div>
+
+            <!-- todo - on a win or lose have the main board go opaque with background.-->
+            <div class="board__grid" id="board__grid" onloadeddata="init()" style="z-index: 9001"></div>
+        </div>
+    </div>
+</body>
+<!--<script src="./src/game.js"></script>-->
+<style>
+    .hover_light:hover {
+        background-color: #ECD0B7;
+    }
+
+    .hover_dark:hover {
+        background-color: #E1CAB3;
+    }
+</style>
+<script src="./src/gameTable.js"></script>
+<script src="./src/script.js"></script>
+</html>
