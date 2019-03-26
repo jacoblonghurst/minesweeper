@@ -96,13 +96,13 @@
                             and uncovered all the squares that are not mines, you win the game.</p>
                     </div>
 
-                    <div>
-                        <label for="showInput"><b>Your Name: </b></label>
-                        <input type="text" id="showInput" onblur="showInputText(this.value)"
-                               onkeyup="showInputText(this.value)" />
+                    <!--<div>-->
+                        <!--<label for="showInput"><b>Your Name: </b></label>-->
+                        <!--<input type="text" id="showInput" onblur="showInputText(this.value)"-->
+                               <!--onkeyup="showInputText(this.value)" />-->
 
-                        <div id="showInputText"></div>
-                    </div>
+                        <!--<div id="showInputText"></div>-->
+                    <!--</div>-->
                 </div>
 
                 <div class="card __play">
@@ -120,6 +120,25 @@
                     <div id="clickLocationRow" style="padding-right: 10px; display: inline-block;"></div>
                     <div id="clickLocationCol" style="padding: 0; margin: 0; display: inline-block;"></div>
                 </div>
+            </div>
+        </div>
+
+        <div class="login">
+            <div style="padding-top: 25px;">
+                <div class="login__username">
+                    <!--<label for="username">Username</label>-->
+                    <input type="text" placeholder="Username" id="username" autocomplete="off" />
+                </div>
+
+                <div class="login__password">
+                    <input type="password" placeholder="Password" id="password" onkeydown="" />
+                </div>
+            </div>
+
+            <div class="login__success" id="login_success"></div>
+
+            <div class="login__submit" onclick="login()">
+                <button>Login</button>
             </div>
         </div>
 
